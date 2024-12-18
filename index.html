@@ -22,7 +22,7 @@
         }
         nav {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             background: #000000;
             padding: 10px 0;
             position: sticky;
@@ -46,6 +46,28 @@
             background: #0131a7;
             border-radius: 4px;
             margin-right: 5px;
+        }
+        .menu {
+            display: flex;
+            gap: 15px;
+            transition: max-height 0.3s ease;
+        }
+        .menu a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .menu a:hover {
+            background: #0131a7;
+            border-radius: 4px;
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
         }
         section {
             padding: 40px;
@@ -243,6 +265,20 @@
                 width: 95%;
                 font-size: 14px;
             }
+            .menu {
+                display: none;
+                flex-direction: column;
+                max-height: 0;
+                overflow: hidden;
+            }
+            .menu.active {
+                display: flex;
+                max-height: 300px; /* Adjust based on your menu items */
+                background: #000000;
+            }
+            .hamburger {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -251,12 +287,18 @@
         <h1>The Odyssey of Manav Purswani: A Portfolio of Vision and Growth</h1>
         <p>WELCOME TO MY PERSONAL PORTFOLIO SHOWCASING MY ACHIEVEMENTS AND GOALS.</p>
     </header>
+    
     <nav>
-        <a href="#" onclick="showSection('personal-growth')">Personal Growth</a>
-        <a href="#" onclick="showSection('aa')">Athletics & Activities</a>
-        <a href="#" onclick="showSection('business')">Personal Projects</a>
-        <a href="#" onclick="showSection('academics')">Academic Pursuits</a>
-        <a href="#" onclick="showSection('contact')">Contact Me</a>
+        <div class="hamburger" onclick="toggleMenu()">
+            ☰
+        </div>
+        <div class="menu" id="menu">
+            <a href="#" onclick="showSection('personal-growth')">Personal Growth</a>
+            <a href="#" onclick="showSection('aa')">Athletics & Activities</a>
+            <a href="#" onclick="showSection('business')">Personal Projects</a>
+            <a href="#" onclick="showSection('academics')">Academic Pursuits</a>
+            <a href="#" onclick="showSection('contact')">Contact Me</a>
+        </div>
     </nav>
 
     <section id="personal-growth" class="active">
