@@ -41,8 +41,8 @@
             border-radius: 4px;
         }
         nav a.active {
-            background: #0131a7;
-            border-radius: 4px;
+        background: #0131a7;
+        border-radius: 4px;
         }
         section {
             padding: 40px;
@@ -421,6 +421,14 @@
                 section.classList.remove('active');
             });
             document.getElementById(sectionId).classList.add('active');
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelectorAll('nav a').forEach(link => {
+                if (link.getAttribute('onclick').includes(sectionId)) {
+                    link.classList.add('active');
+                }
+            });
         }
     </script>
 </body>
